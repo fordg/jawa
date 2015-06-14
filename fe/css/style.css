@@ -3251,6 +3251,29 @@ margin: 0 auto;
   font-weight: bold;
 }
 
+/*
+added - rico 
+ */
+.section-center {
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+.main-title {
+  background-color: #A7A7A7;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.main-container {
+  padding: 5px 8px; 
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+/*
+end added - rico
+ */
+
 .noo-control-group .group-container {
   margin: 20px 5px 15px 5px;
 }
