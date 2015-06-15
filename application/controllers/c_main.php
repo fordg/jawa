@@ -7,6 +7,7 @@ class C_main extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('session');
+        $this->load->model('m_category');
     }
 
     public function index(){
@@ -39,7 +40,8 @@ class C_main extends CI_Controller {
         /**
          * get all from database
          */
-        $data['map'] = $this->googlemaps->create_map();
+        $data['category']       = $this->m_category->get(); 
+        $data['map']            = $this->googlemaps->create_map();
 
         /**
          * [$html description]
@@ -47,7 +49,7 @@ class C_main extends CI_Controller {
          */
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/content',$data);
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');
