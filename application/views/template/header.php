@@ -61,38 +61,11 @@
                         </div>
                         <div class="navbar-collapse collapse col-md-80">
                             <ul class="nav navbar-nav">
+                                <?php 
+                                /*
                                 <li><a href="#">Home</a></li>
-                                <li class="dropdown menu-large">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Product Listing </a>
-                                    <ul class="dropdown-menu megamenu row">
-                                        <li>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="dropdown-header-2">Judul</div>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="http://placehold.it/150x120">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="dropdown-header-2">Judul</div>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="http://placehold.it/150x120">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="dropdown-header-2">Judul</div>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="http://placehold.it/150x120">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-6 col-md-3">
-                                                <div class="dropdown-header-2">Judul</div>
-                                                <a href="#">
-                                                    <img class="img-responsive" src="http://placehold.it/150x120">
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                */
+                                ?>
                                 <?php foreach($category as $row): ?>
                                 <li class="dropdown menu-large">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $row->nama_kategori ?> </a>
@@ -104,7 +77,7 @@
                                         <li>
                                             <div class="col-sm-6 col-md-3">
                                                 <div class="dropdown-header-2"><?php echo $sk->nama_subkat ?></div>
-                                                <a href="#">
+                                                <a href="<?php echo base_url('c_category/detail_category') ?>/<?php echo $row->nama_kategori.'/' ?><?php echo $sk->nama_subkat.'.html' ?>">
                                                     <img class="img-responsive" src="http://placehold.it/150x120">
                                                 </a>
                                             </div>

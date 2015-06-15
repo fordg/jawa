@@ -8,6 +8,7 @@ class C_main extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->model('m_category');
+        $this->load->model('m_category');
     }
 
     public function index(){

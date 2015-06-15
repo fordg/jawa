@@ -8,15 +8,21 @@ class C_auth extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('m_user');
+        $this->load->model('m_category');
     }
 
     public function index() { 
+        /**
+         * get all from database
+         */
+        $data['category']       = $this->m_category->get(); 
+
         if($this->session->userdata('is_login')){
             redirect(base_url('/'));
         }
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/auth/login-register');
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');

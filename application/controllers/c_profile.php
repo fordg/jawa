@@ -10,6 +10,7 @@ class C_profile extends CI_Controller {
         $this->load->model('m_user');
         $this->load->helper('form');
         $this->load->library('upload');
+        $this->load->model('m_category');
     }
 
     public function index(){
@@ -19,6 +20,7 @@ class C_profile extends CI_Controller {
          * get all from database
          */
         $data['profil'] = $this->m_user->getById($this->session->userdata('id'));
+        $data['category']       = $this->m_category->get(); 
 
         /**
          * [$html description]
@@ -26,7 +28,7 @@ class C_profile extends CI_Controller {
          */
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/user/user_profile',$data);
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');

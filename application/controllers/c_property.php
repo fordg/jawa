@@ -7,6 +7,7 @@ class C_property extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('session');
+        $this->load->model('m_category');
         $this->load->model('m_user');
         $this->load->model('m_property');
         $this->load->helper('form');
@@ -19,6 +20,7 @@ class C_property extends CI_Controller {
         /**
          * get all from database
          */
+        $data['category']   = $this->m_category->get(); 
         $data['profil']     = $this->m_user->getById($this->session->userdata('id'));
         $data['properti']   = $this->m_property->getMyProperty($this->session->userdata('username'));
         $data['jenis']      = $this->m_property->getJenis();
@@ -29,7 +31,7 @@ class C_property extends CI_Controller {
          */
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/property/my_property',$data);
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');
@@ -42,6 +44,7 @@ class C_property extends CI_Controller {
         /**
          * get all from database
          */
+        $data['category']       = $this->m_category->get(); 
         $data['detail']     = $this->m_property->getById($id);
 
         /**
@@ -50,7 +53,7 @@ class C_property extends CI_Controller {
          */
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/property/detail_property',$data);
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');
@@ -63,6 +66,7 @@ class C_property extends CI_Controller {
         /**
          * get all from database
          */
+        $data['category']       = $this->m_category->get(); 
         $data['profil'] = $this->m_user->getById($this->session->userdata('id'));
         $data['jenis']  = $this->m_property->getJenis();
 
@@ -72,7 +76,7 @@ class C_property extends CI_Controller {
          */
         $html = array();
         $html['component']  = $this->load->view('template/component');
-        $html['header']     = $this->load->view('template/header');
+        $html['header']     = $this->load->view('template/header',$data);
         $html['content']    = $this->load->view('template/property/add_property',$data);
         $html['footer']     = $this->load->view('template/footer');
         $html['js']         = $this->load->view('template/js');
