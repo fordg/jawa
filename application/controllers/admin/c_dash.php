@@ -22,6 +22,7 @@ class C_dash extends CI_Controller {
          * @var array
          */
 		$data = array();
+        $data['properti_baru']= $this->m_property->not_yet_approval();  
 		$data['notif']        = $this->m_property->count_properti();
 		$data['notifikasi']   = $this->m_property->notif_properti();
 

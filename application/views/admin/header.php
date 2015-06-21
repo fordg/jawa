@@ -46,7 +46,7 @@
 						<img class="nav-user-photo" src="<?php echo base_url('be/avatars/user.jpg') ?>" alt="Jason's Photo" />
 						<span class="user-info">
 							<small>Welcome,</small>
-							Jason
+							<?php echo $this->session->userdata('username') ?>
 						</span>
 
 						<i class="icon-caret-down"></i>
@@ -61,7 +61,7 @@
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo base_url('admin/c_user') ?>">
 								<i class="icon-user"></i>
 								Profile
 							</a>

@@ -89,7 +89,6 @@
 				
 		});
 	
-	
 		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
 		function tooltip_placement(context, source) {
 			var $source = $(source);

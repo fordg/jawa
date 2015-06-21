@@ -41,13 +41,12 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         }
 
         /* controller for admin */
-        public function select_properti(){
-            $vehicle = $this->db->query("SELECT * FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID where p.username = '".$_SESSION['username']."' ");
+        public function not_yet_approval(){
+            $vehicle = $this->db->query("SELECT *, p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID WHERE p.new = 1 AND p.verified = 0");
             $zz = $vehicle->result_array();
             return $zz;
-            
         } 
-                      
+
         public function all_properti(){
             $vehicle = $this->db->query("SELECT *,p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID");
             $zz = $vehicle->result_array();

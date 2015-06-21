@@ -140,8 +140,6 @@
 					e.preventDefault();
 				});*/
 				  
-				  
-			
 				// Portlets (boxes)
 			    $('.widget-container-span').sortable({
 			        connectWith: '.widget-container-span',
