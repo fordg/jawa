@@ -37,7 +37,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         public function post($data){
             $this->db->insert('user', $data);
         }
-}
+    }
 
 /* End of file welcome.php */
 /* Location: ./application/models/model_uesr.php */

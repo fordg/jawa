@@ -33,6 +33,19 @@ class C_user extends CI_Controller {
         $html['kiri']       = $this->load->view('admin/kiri',null,true);
         $html['content']    = $this->load->view('admin/user/profil',$data,true);
         $this->load->view('admin/template',$html);
+    }
+
+    public function put() {
+        $id= $this->input->post('nID');
+        $data = array(
+                        'strUserName'       => $this->input->post('strUserName'),
+                        'strUserPassword'   => $this->input->post('strUserPassword'),
+                        'strFLName'         => $this->input->post('strFLName'),
+                        'strEmail'          => $this->input->post('strEmail')
+                     );
+        $this->m_admin->update($id,$data);
+        $this->session->set_flashdata('success', 'Anda berhasil mengubah profil.');
+        redirect(base_url('admin/c_user/profil'));
     }  
 }
 

@@ -11,10 +11,10 @@ class M_admin extends CI_Model{
         if ($query->num_rows() == 1) { // jika data = 1
 			$data = $query->row_array();
 			$newdata = array(
-                                'id'         =>$data->nID,
+                                'id'        => $data['nID'],
                                 'username'  => $data['strUserName'],
                                 'level'     => $data['nUserPrivilege'],
-                                'is_login' => TRUE
+                                'is_login'  => TRUE
 						    );
 			$this->session->set_userdata($newdata);
 			return TRUE;
@@ -33,5 +33,10 @@ class M_admin extends CI_Model{
         $this->db->where('nID', $id);
         $query = $this->db->get('user');
         return $query->row_array();
+    }
+
+    public function update($id, $data){
+        $this->db->where('nID', $id);
+        return $this->db->update('user', $data); 
     }
 }

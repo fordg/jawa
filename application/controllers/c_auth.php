@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Created by Rico Oktavian Adhi Wibowo
  */
@@ -11,11 +11,11 @@ class C_auth extends CI_Controller {
         $this->load->model('m_category');
     }
 
-    public function index() { 
+    public function index() {
         /**
          * get all from database
          */
-        $data['category']       = $this->m_category->get(); 
+        $data['category']       = $this->m_category->get();
 
         if($this->session->userdata('is_login')){
             redirect(base_url('/'));
@@ -36,14 +36,14 @@ class C_auth extends CI_Controller {
         $target = base_url('c_auth');
         if($result === TRUE){
             $target = base_url('/');
-        }else{ 
+        }else{
             $this->session->set_flashdata('error', 'Silahkan ulangi kembali');
         }
         redirect($target,'refresh');
     }
 
     public function post()
-    { 
+    {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
 
@@ -72,26 +72,26 @@ class C_auth extends CI_Controller {
         $this->form_validation->set_rules('bVerified','Nama Lengkap', 'trim|required|xss_clean');
         $this->form_validation->set_rules('create_date','Nama Lengkap', 'trim|required|xss_clean');
         $this->form_validation->set_rules('namalengkap','Nama Lengkap', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('namapengguna','Nama Panggilan', 'trim|required|xss_clean');        
+        $this->form_validation->set_rules('namapengguna','Nama Panggilan', 'trim|required|xss_clean');
         $this->form_validation->set_rules('notelp','Email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('alamat','Alamat', 'trim|required|xss_clean');
         $this->form_validation->set_rules('email','Email', 'valid_email|trim|required|xss_clean');
-        $this->form_validation->set_rules('password','Password', 'trim|required|min_length[6]|matches[konfpassword]');        
+        $this->form_validation->set_rules('password','Password', 'trim|required|min_length[6]|matches[konfpassword]');
         $this->form_validation->set_rules('konfpassword', 'Konfirmasi Password', 'required');
         return $this->form_validation->run();
     }
-    
+
     private function _salt($value){
         $salt ='4ku6anttenGGG';
         $encrypt = md5($salt . $value);
         return $encrypt;
     }
-    
+
     public function logout(){
         $this->session->sess_destroy();
         redirect(base_url('c_auth'));
     }
-    
+
     private function _get_flashdata() {
         $msg = $this->session->flashdata("process_msg");
         if (empty($msg))
