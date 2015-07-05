@@ -13,14 +13,18 @@
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 		<!-- page specific plugin styles -->
 
 		<!-- fonts -->
 		<link rel="stylesheet" href="<?php echo base_url('be/css/ace-fonts.css') ?>" />
-		<!-- ace styles -->
+		
+		<!-- wysiwg editor -->
+		<link href="<?php echo base_url('be/css/editor.css') ?>" rel="stylesheet" />
 
-		<link rel="stylesheet" href="<?php echo base_url('be/css/ace.min.css') ?>" />
+		<!-- ace styles -->
+		<link rel="stylesheet" href="<?php echo base_url('be/css/uncompressed/ace.css') ?>" />
 		<link rel="stylesheet" href="<?php echo base_url('be/css/ace-rtl.min.css') ?>" />
 		<link rel="stylesheet" href="<?php echo base_url('be/css/ace-skins.min.css') ?>" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -31,7 +35,6 @@
 		<!-- inline styles related to this page -->
 
 		<!-- ace settings handler -->
-
 		<script src="<?php echo base_url('be/js/ace-extra.min.js') ?>"></script>
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -106,18 +109,20 @@
 		<script src="<?php echo base_url('be/js/jquery-ui-1.10.3.custom.min.js') ?>"></script>
 		<script src="<?php echo base_url('be/js/jquery.ui.touch-punch.min.js') ?>"></script>
 		<script src="<?php echo base_url('be/js/jquery.slimscroll.min.js') ?>"></script>
+		<script src="<?php echo base_url('be/js/bootstrap-wysiwyg.min.js') ?>"></script>
 		<!-- page specific plugin scripts -->
 		
+		<!-- wysiwyg -->
+		<script src="<?php echo base_url('be/js/editor.js') ?>"></script>
 
 		<!-- ace scripts -->
-
 		<script src="<?php echo base_url('be/js/ace-elements.min.js') ?>"></script>
 		<script src="<?php echo base_url('be/js/ace.min.js') ?>"></script>
 
 		<!-- inline scripts related to this page -->
-
 		<script type="text/javascript">
 			jQuery(function($) {
+				$("#txtEditor").Editor(); 
 			
 				$('#simple-colorpicker-1').ace_colorpicker({pull_right:true}).on('change', function(){
 					var color_class = $(this).find('option:selected').data('class');
@@ -151,7 +156,46 @@
 					forcePlaceholderSize:true,
 					tolerance:'pointer'
 			    });
-			
+
+			    $('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
+
+				//but we want to change a few buttons colors for the third style
+				$('#editor1').ace_wysiwyg({
+					toolbar:
+					[
+						'font',
+						null,
+						'fontSize',
+						null,
+						{name:'bold', className:'btn-info'},
+						{name:'italic', className:'btn-info'},
+						{name:'strikethrough', className:'btn-info'},
+						{name:'underline', className:'btn-info'},
+						null,
+						{name:'insertunorderedlist', className:'btn-success'},
+						{name:'insertorderedlist', className:'btn-success'},
+						{name:'outdent', className:'btn-purple'},
+						{name:'indent', className:'btn-purple'},
+						null,
+						{name:'justifyleft', className:'btn-primary'},
+						{name:'justifycenter', className:'btn-primary'},
+						{name:'justifyright', className:'btn-primary'},
+						{name:'justifyfull', className:'btn-inverse'},
+						null,
+						{name:'createLink', className:'btn-pink'},
+						{name:'unlink', className:'btn-pink'},
+						null,
+						{name:'insertImage', className:'btn-success'},
+						null,
+						'foreColor',
+						null,
+						{name:'undo', className:'btn-grey'},
+						{name:'redo', className:'btn-grey'}
+					],
+					'wysiwyg': {
+						fileUploadError: showErrorAlert
+					}
+				}).prev().addClass('wysiwyg-style2');			
 			});
 		</script>
 	</body>

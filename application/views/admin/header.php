@@ -34,9 +34,6 @@
 							</a>
 						</li>
 						<?php } ?>
-						<li class="dropdown-footer">
-							Notifikasi Properti
-						</li>
 					</ul>
 				</li>
 

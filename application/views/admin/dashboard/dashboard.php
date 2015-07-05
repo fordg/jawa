@@ -84,12 +84,13 @@
 
 <script type="text/javascript">
 	$(function() {
-		var oTable1 = $('#properti').dataTable( {
-		"aoColumns": [
-	      { "bSortable": false },
-	      null, null,null, null, null, 
-		  { "bSortable": false }
-		] } );
+		var oTable1 = $('#properti').dataTable({
+			"aoColumns": [
+		    	{ "bSortable": false },
+		      		null, null,null, null, null, 
+			  	{ "bSortable": false }
+			] 
+		});
 		
 		$('table th input:checkbox').on('click' , function(){
 			var that = this;

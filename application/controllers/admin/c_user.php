@@ -5,9 +5,11 @@ class C_user extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->library('session');
-        if($this->session->userdata('is_login')===FALSE);
         $this->load->model('m_property');
         $this->load->model('m_admin');
+        if($this->session->userdata('is_login')===FALSE){
+            redirect('admin/c_login');
+        }
     }
 
     public function index(){

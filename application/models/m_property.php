@@ -48,7 +48,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         } 
 
         public function all_properti(){
-            $vehicle = $this->db->query("SELECT *,p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID");
+            $vehicle = $this->db->query("SELECT *, p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID WHERE p.jenis_properti=1 OR p.jenis_properti=2 OR p.jenis_properti=3 OR p.jenis_properti=4 OR p.jenis_properti=5 OR p.jenis_properti=6 OR p.jenis_properti=7 OR p.jenis_properti=8 ORDER BY idProperti DESC");
             $zz = $vehicle->result_array();
             return $zz;
         }   
@@ -60,7 +60,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         }
          
         public function notif_properti(){
-            $vehicle = $this->db->query("SELECT * FROM properti WHERE new = 1 AND verified = 0");
+            $vehicle = $this->db->query("SELECT * FROM properti WHERE new = 1 AND verified = 0 ORDER BY nID DESC");
             $zz = $vehicle->result_array();
             return $zz;
         }
@@ -69,8 +69,38 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
             $this->db->where('nID', $id);
             $this->db->update('properti', $data);
         }
+
+        /**
+         * [filter-property get property only destination]
+         * @return [all function filter-property] [destination]
+         */
+        public function get_destination(){
+            $vehicle = $this->db->query("SELECT *,p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID WHERE p.jenis_properti=9 OR p.jenis_properti=10 OR p.jenis_properti=11 ORDER BY idProperti DESC");
+            $zz = $vehicle->result_array();
+            return $zz;
+        }
+
+        /**
+         * [filter-property get property only belanja]
+         * @return [all function filter-property] [belanja]
+         */
+        public function get_belanja(){
+            $vehicle = $this->db->query("SELECT *,p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID WHERE p.jenis_properti=12 OR p.jenis_properti=13 OR p.jenis_properti=15 ORDER BY idProperti DESC");
+            $zz = $vehicle->result_array();
+            return $zz;
+        }
+
+        /**
+         * [filter-property get property only belanja]
+         * @return [all function filter-property] [kuliner]
+         */
+        public function get_kuliner(){
+            $vehicle = $this->db->query("SELECT *,p.nID as idProperti FROM properti p JOIN sub_kategori s ON p.jenis_properti = s.nID WHERE p.jenis_properti=16 OR p.jenis_properti=17 ORDER BY idProperti DESC");
+            $zz = $vehicle->result_array();
+            return $zz;
+        }
 }
 
 /* End of file welcome.php */
-/* Location: ./application/models/model_uesr.php */
+/* Location: ./application/models/model_user.php */
 ?>

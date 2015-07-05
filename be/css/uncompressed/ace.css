@@ -1,3 +1,4 @@
+
 html {
   min-height: 100%;
   position: relative;
@@ -33,6 +34,7 @@ body.breadcrumbs-fixed {
   width: 100%;
   z-index: -2;
 }
+
 @media (min-width: 768px) {
   .container.main-container:after {
     -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
@@ -1956,6 +1958,12 @@ li [class*=" icon-"],
   font-weight: normal;
   margin-right: 2px;
 }
+/* rico */
+.nav-list > li > a > i {
+  margin-left: 5px;
+  margin-right: 7px;
+}
+/* end rico */
 .nav-list > li > a:focus {
   background-color: #f9f9f9;
   color: #1963aa;

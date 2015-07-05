@@ -77,7 +77,7 @@
                                                 <div id="uploaded-images">
                                                     <div class="uploaded-img">
                                                         <?php if($profil['photo'] == null ) {?>
-                                                        <img src="<?php echo base_url();?>assets/images/agent/agent1.jpg" alt="">
+                                                        <img src="<?php echo base_url();?>fe/images/agent/agent1.jpg" alt="">
                                                         <?php } else { ?>
                                                         <img src="<?php echo base_url('upload/profile/') ?>/<?php echo $profil['photo'] ?>"class="img-responsive" alt="">
                                                         <?php } ?>

@@ -9,8 +9,7 @@ class C_properti extends CI_Controller {
         $this->load->model('m_property');
         $this->load->helper('form');
         $this->load->library('upload'); 
-        if($this->session->userdata('is_login')===FALSE)
-        {
+        if($this->session->userdata('is_login')===FALSE){
 			redirect('admin/c_login');
 		}
     }
