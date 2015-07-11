@@ -7,8 +7,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
         }
 
         public function get(){
-            $this->db->order_by("nID","desc");
-            return $this->db->get("berita")->result_array();
+            $this->db->select('*');
+            $this->db->from('berita b'); 
+            $this->db->join('user u', 'b.userid=u.nID');
+            $this->db->order_by("b.nID","desc");
+            return $this->db->get()->result_array();
         }
 
         public function post($data){

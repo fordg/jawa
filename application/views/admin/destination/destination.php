@@ -20,7 +20,15 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 widget-container-span">
                         <div class="table-header">
-                            Daftar Destination
+                            <div class="row">
+                                <div class="col-md-11">
+                                    Daftar Destination
+                                </div>
+
+                                <div class="col-md-1">
+                                    <a href="<?php echo base_url('admin/c_destination/tambah') ?>" class="btn btn-success btn-minier">Tambah</a>
+                                </div>
+                            </div>
                         </div>
         
                         <div class="modal-body no-padding">

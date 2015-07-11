@@ -99,6 +99,36 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
             $zz = $vehicle->result_array();
             return $zz;
         }
+
+        /**
+         * [getJenisDestination get sub category destination]
+         * @return [select] [destination]
+         */
+        public function getJenisDestination(){
+            $sub_category   = $this->db->query("SELECT * FROM sub_kategori where id_kategori = 3 ");
+            $get            = $sub_category->result_array();
+            return $get;
+        }
+
+        /**
+         * [getJenisBelanja get sub category belanja]
+         * @return [select] [belanja]
+         */
+        public function getJenisBelanja(){
+            $sub_category   = $this->db->query("SELECT * FROM sub_kategori where id_kategori = 4 ");
+            $get            = $sub_category->result_array();
+            return $get;
+        }
+
+        /**
+         * [getJenisKuliner get sub category kuliner]
+         * @return [select] [kuliner]
+         */
+        public function getJenisKuliner(){
+            $sub_category   = $this->db->query("SELECT * FROM sub_kategori where id_kategori = 5 ");
+            $get            = $sub_category->result_array();
+            return $get;
+        }
 }
 
 /* End of file welcome.php */

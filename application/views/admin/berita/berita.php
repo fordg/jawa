@@ -47,7 +47,7 @@
                                         <tr>
                                             <?php foreach($rows as $row){ ?>
                                             <td class="hidden-480"><?php echo $row['titlenews']; ?></td>
-                                            <td class="hidden-480"><?php echo $row['userid']; ?></td>
+                                            <td class="hidden-480"><?php echo $row['strUserName']; ?></td>
                                             <td class="hidden-480"><?php echo pretty_date($row['postdate']); ?></td>
                                             <td class="hidden-480">
                                                 <center>

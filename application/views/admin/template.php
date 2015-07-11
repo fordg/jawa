@@ -123,6 +123,10 @@
 		<script type="text/javascript">
 			jQuery(function($) {
 				$("#txtEditor").Editor(); 
+
+				$("#txtEditor2").Editor();
+
+				$("#txtEditor3").Editor();  
 			
 				$('#simple-colorpicker-1').ace_colorpicker({pull_right:true}).on('change', function(){
 					var color_class = $(this).find('option:selected').data('class');
