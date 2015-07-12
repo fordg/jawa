@@ -29,10 +29,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
             return $get;
         }
 
-        public function getByID($id){
-            $this->db->where('nID', $id);
-            $query = $this->db->get('properti');
-            return $query->row_array();
+        public function get_id ($id){
+            $sql= "select * from properti where nID ='".$id. "'";
+            return $this->db->query($sql)->row();
         }
 
         public function update($id, $data){
@@ -129,7 +128,22 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
             $get            = $sub_category->result_array();
             return $get;
         }
-}
+
+
+        /**
+         * [delete description]
+         * @param  [type] $id [description]
+         * @return [type]     [description]
+         */
+        public function delete($id){
+            $db_debug = $this->db->db_debug;
+            $this->db->db_debug = true;
+            $this->db->where('nID',$id);
+            $this->db->delete('properti');
+            return $this->db->_error_number();
+        }
+
+    }
 
 /* End of file welcome.php */
 /* Location: ./application/models/model_user.php */

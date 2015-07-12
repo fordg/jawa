@@ -115,6 +115,16 @@ class C_destination extends CI_Controller {
         }
     }
 
+    public function delete(){
+        $id = $this->uri->segment(4); 
+        $h=$this->m_property->delete($id); 
+        if($h==1451)
+            $this->session->set_flashdata('message', $this->message->message_error('Gagal menghapus. Data tersebut sudah digunakan pada data lainnya'));
+        else
+            //$this->session->set_flashdata('message', $this->message->message_success('Berhasil menghapus Data'));
+            redirect(base_url('admin/c_destination'));
+    }
+
     private function _get_flashdata() {
         $msg = $this->session->flashdata("process_msg");
         if (empty($msg))
