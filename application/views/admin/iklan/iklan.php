@@ -9,7 +9,7 @@
                 <i class="icon-home home-icon"></i>
                 <a href="#">Home</a>
             </li>
-            <li class="active">Berita</li>
+            <li class="active">Iklan</li>
         </ul><!-- .breadcrumb -->
     </div>
 
@@ -22,43 +22,51 @@
                         <div class="table-header">
                             <div class="row">
                                 <div class="col-md-11">
-                                    Daftar Berita
+                                    Daftar Iklan
                                 </div>
 
                                 <div class="col-md-1">
-                                    <a href="<?php echo base_url('admin/c_news/tambah') ?>" class="btn btn-success btn-minier">Tambah</a>
+                                    <a href="<?php echo base_url('admin/c_ads/tambah') ?>" class="btn btn-success btn-minier">Tambah</a>
                                 </div>
                             </div>
                         </div>
         
                         <div class="modal-body no-padding">
                             <div class="row-fluid">
-                                <table id="properti" class="table table-responsive table-striped table-bordered table-hover no-margin-bottom no-border-top">
+                                <table id="iklan" class="table table-responsive table-striped table-bordered table-hover no-margin-bottom no-border-top">
                                     <thead>
                                         <tr>
-                                            <th class="hidden-480">Jenis Properti</th>
-                                            <th class="hidden-480">Penulis</th>
-                                            <th class="hidden-480">Tanggal</th>
+                                            <th class="hidden-480">Nama</th>
+                                            <th class="hidden-480">Deskripsi</th>
                                             <th class="hidden-480"><center>Aksi</center></th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        <?php foreach($iklan as $row): ?>
                                         <tr>
-                                            <?php foreach($rows as $row){ ?>
-                                            <td class="hidden-480"><?php echo $row['titlenews']; ?></td>
-                                            <td class="hidden-480"><?php echo $row['strUserName']; ?></td>
-                                            <td class="hidden-480"><?php echo pretty_date($row['postdate']); ?></td>
+                                            <td class="hidden-480">
+                                                <a href="<?php echo $row['link'] ?>" target="_blank">
+                                                    <?php echo $row['nama'] ?>
+                                                </a>
+                                            </td>
+                                            <td class="hidden-480"><?php echo $row['deskripsi'] ?></td>
                                             <td class="hidden-480">
                                                 <center>
-                                                    <a href="<?php echo base_url('admin/c_news/ubah/'.$row['nID']) ?>" class="btn btn-primary btn-minier"><i class="fa fa-pencil-square-o"></i> Ubah</a>
-                                                    <a href="<?php echo base_url('admin/c_news/delete/'.$row['nID']) ?>" class="btn btn-danger btn-minier">
+                                                    <?php if($row['publish'] == 1){ ?>
+                                                    <a href="<?php echo base_url('admin/c_ads/properti_unaprove/'.$row['nID']); ?>" class="btn btn-success btn-minier"><i class="icon-ok"></i>Publish</a>
+                                                    <?php }else{ ?>
+                                                    <a href="<?php echo base_url('admin/c_ads/properti_aprove/'.$row['nID']); ?>" class="btn btn-primary btn-minier"><i class="icon-exclamation-sign"></i>Tarik Publish</a>
+                                                    <?php } ?>
+
+                                                    <a href="<?php echo base_url('admin/c_ads/ubah/'.$row['nID']) ?>" class="btn btn-primary btn-minier"><i class="fa fa-pencil-square-o"></i> Ubah</a>
+                                                    <a href="<?php echo base_url('admin/c_ads/delete/'.$row['nID']) ?>" class="btn btn-danger btn-minier">
                                                         <i class="ace-icon fa fa-times bigger-125"></i> Hapus
                                                     </a>
                                                 </center>
                                             </td>
                                         </tr>
-                                        <?php } ?>
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -72,10 +80,10 @@
 
 <script type="text/javascript">
     $(function() {
-        var oTable1 = $('#properti').dataTable( {
+        var oTable1 = $('#iklan').dataTable( {
         "aoColumns": [
           { "bSortable": false },
-          null, null,
+          null, 
           { "bSortable": false }
         ] } );
         

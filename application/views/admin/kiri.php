@@ -54,7 +54,7 @@
 	</li>
 
 	<li>
-		<a href="#">
+		<a href="<?php echo base_url('admin/c_ads') ?>">
 			<i class="fa fa-buysellads"></i>
 			<span class="menu-text"> Iklan </span>
 		</a>

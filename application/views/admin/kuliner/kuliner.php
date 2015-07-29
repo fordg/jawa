@@ -26,7 +26,7 @@
                                 </div>
 
                                 <div class="col-md-1">
-                                    <a href="<?php echo base_url('admin/c_destination/tambah') ?>" class="btn btn-success btn-minier">Tambah</a>
+                                    <a href="<?php echo base_url('admin/c_kuliner/tambah') ?>" class="btn btn-success btn-minier">Tambah</a>
                                 </div>
                             </div>
                         </div>

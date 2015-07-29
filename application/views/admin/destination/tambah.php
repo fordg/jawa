@@ -127,3 +127,9 @@
         </div>
     </div><!-- /.page-content -->
 </div><!-- /.main-content -->
+
+<script type="text/javascript">
+    jQuery(function($) {
+        $("#txtEditor").Editor();
+    });
+</script>

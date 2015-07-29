@@ -128,7 +128,7 @@ class C_belanja extends CI_Controller {
         $data['category']       = $this->m_category->get(); 
         $data['notif']          = $this->m_property->count_properti();
         $data['notifikasi']     = $this->m_property->notif_properti();
-        $monyet['data']           = $this->m_property->get_id($id);
+        $monyet['data']         = $this->m_property->get_id($id);
 
         /**
          * [$html call all wireframe]
@@ -194,14 +194,9 @@ class C_belanja extends CI_Controller {
         }
     }
 
-    public function delete(){
-        $id = $this->uri->segment(4); 
-        $h=$this->m_property->delete($id); 
-        if($h==1451)
-            $this->session->set_flashdata('message', $this->message->message_error('Gagal menghapus. Data tersebut sudah digunakan pada data lainnya'));
-        else
-            //$this->session->set_flashdata('message', $this->message->message_success('Berhasil menghapus Data'));
-            redirect(base_url('admin/c_belanja'));
+    public function delete($id){
+        $this->m_property->delete($id);
+        redirect('admin/c_belanja');
     }
 
     private function _get_flashdata(){

@@ -52,7 +52,7 @@
                             <h4 class="header green clearfix">
                                 Alamat
                             </h4>
-                            <textarea class="form-control" name="alamat"></textarea>
+                            <textarea class="form-control" name="alamat"><?php echo $data->alamat ?></textarea>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                             <h4 class="header green clearfix">
                                 Deskripsi
                             </h4>
-                            <textarea class="form-control" name="deskripsi"></textarea>
+                            <textarea class="form-control" name="deskripsi"><?php echo $data->deskripsi ?></textarea>
                         </div>
                     </div>
 
@@ -70,14 +70,14 @@
                             <h4 class="header green clearfix">
                                 Latitude
                             </h4>
-                            <input class="form-control" type="text" name="lat" />
+                            <input class="form-control" type="text" name="lat" value="<?php echo $data->lat ?>" />
                         </div>
 
                         <div class="col-md-6">
                             <h4 class="header green clearfix">
                                 Longitude
                             </h4>
-                            <input class="form-control" type="text" name="lon" />
+                            <input class="form-control" type="text" name="lon" value="<?php echo $data->lon ?>" />
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
                             <h4 class="header green clearfix">
                                 Nama Pengelola
                             </h4>
-                            <input class="form-control" type="text" name="nama_pengelola" />
+                            <input class="form-control" type="text" name="nama_pengelola" value="<?php echo $data->nama_pengelola ?>" />
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@
                             <h4 class="header green clearfix">
                                 Contact Person Pengelola
                             </h4>
-                            <input class="form-control" type="text" name="no_hp" />
+                            <input class="form-control" type="text" name="no_hp" value="<?php echo $data->nohp_pengelola ?>" />
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                             <h4 class="header green clearfix">
                                 Kebijakan
                             </h4>
-                            <textarea class="form-control" name="kebijakan"></textarea>
+                            <textarea class="form-control" name="kebijakan"><?php echo $data->kebijakan ?></textarea>
                         </div>
                     </div>
 
