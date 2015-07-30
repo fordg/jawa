@@ -72,7 +72,12 @@
                                                 <?php }else{ ?>
                                                 <a href="<?php echo base_url('admin/c_properti/properti_aprove/'.$row['idProperti']); ?>" class="btn btn-primary btn-minier"><i class="icon-exclamation-sign"></i>Belum di Verifikasi</a>
                                                 <?php } ?>
-                                                <a href="<?php echo base_url('admin/c_kuliner/delete/'.$row['nID']) ?>" class="btn btn-danger btn-minier">
+
+                                                <a href="<?php echo base_url('admin/c_kuliner/ubah/'.$row['idProperti']) ?>" class="btn btn-primary btn-minier">
+                                                    <i class="fa fa-pencil-square-o"></i> Ubah
+                                                </a>
+
+                                                <a href="<?php echo base_url('admin/c_kuliner/delete/'.$row['idProperti']) ?>" class="btn btn-danger btn-minier">
                                                     <i class="ace-icon fa fa-times bigger-125"></i> Hapus
                                                 </a>
                                             </td>

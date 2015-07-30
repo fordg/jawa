@@ -126,6 +126,7 @@ class C_belanja extends CI_Controller {
         $data = array();
         $data['msg']            = $this->_get_flashdata();
         $data['category']       = $this->m_category->get(); 
+        $data['jenis']          = $this->m_property->getJenisBelanja();
         $data['notif']          = $this->m_property->count_properti();
         $data['notifikasi']     = $this->m_property->notif_properti();
         $monyet['data']         = $this->m_property->get_id($id);
@@ -168,7 +169,7 @@ class C_belanja extends CI_Controller {
                             'verified'      =>$this->input->post('verified')
             );
             $this->m_property->update($id,$data);
-            redirect('admin/c_news');
+            redirect('admin/c_kuliner');
         }else{
             $upload = $this->upload->data();
             $id= $this->input->post('userid');
@@ -190,7 +191,7 @@ class C_belanja extends CI_Controller {
                             'photo'      => $upload['file_name']
             );
             $this->m_property->update($id,$data);
-            redirect('admin/c_news');
+            redirect('admin/c_kuliner');
         }
     }
 

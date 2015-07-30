@@ -16,7 +16,7 @@
 
     <div class="page-content">
         <div class="row">
-            <form method="post" action="<?php echo base_url('admin/c_belanja/put/'. $data->nID) ?>" enctype="multipart/form-data">
+            <form method="post" action="<?php echo base_url('admin/c_kuliner/put/'. $data->nID) ?>" enctype="multipart/form-data">
                 <input type="hidden" value="<?php echo $data->nID; ?>" name="nID" />
                 <input type="hidden" name="username" value="<?php echo $this->session->userdata('username'); ?>" />
                 <input type="hidden" name="create_date" value="<?php echo gmdate("Y-m-d H:i:s", time()+60*60*7) ?>" />

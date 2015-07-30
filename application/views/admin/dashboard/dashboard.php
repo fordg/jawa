@@ -87,7 +87,7 @@
 		var oTable1 = $('#properti').dataTable({
 			"aoColumns": [
 		    	{ "bSortable": false },
-		      		null, null,null, null, null, 
+		      		null, null,null, null, null, null
 			  	{ "bSortable": false }
 			] 
 		});
