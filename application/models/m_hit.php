@@ -1,19 +1,8 @@
 <?php
+
 class M_hit extends CI_Model{
     public function __construct(){
       //$this->counter();    
-    }
-  
-    public function get_data(){
-        $this->db->where('id',1);
-        $res = $this->db->get('hit_counter');
-        return $res->row();
-    }
-    
-    public function update($id,$data){
-        $this->db->set($data);
-        $this->db->where('id', $id);
-        $this->db->update('hit_counter');
     }
    
     public function counter(){
@@ -36,8 +25,8 @@ class M_hit extends CI_Model{
 
         //Registration session and save to database
         if (!isset($_SESSION['visitor'])){
-        $_SESSION['visitor']=$ipaddress;
-          //setcookie('visitor', $ipaddress, time() +3600);
+            $_SESSION['visitor']=$ipaddress;
+            //setcookie('visitor', $ipaddress, time() +3600);
             $this->db->query("INSERT INTO visitor (tanggal,ip_address,counter,browser) VALUES ('".$tanggal."','".$ipaddress."','".$kunjungan."','".$browser."')");
         }          
     }
@@ -58,4 +47,5 @@ class M_hit extends CI_Model{
         return $sql->row_array();   
     }
 }
+
 ?>

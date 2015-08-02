@@ -29,6 +29,9 @@ class C_dash extends CI_Controller {
         $data['kemarin']            = $this->m_hit->kemarin();
         $data['total']              = $this->m_hit->total();
 
+        /* run counter */
+        $this->m_hit->counter();
+
         /**
          * [$html call all wireframe]
          * @var array

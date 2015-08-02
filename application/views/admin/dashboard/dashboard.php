@@ -86,7 +86,7 @@
 
 							<div class="widget-body">
 								<div class="widget-main padding-6">
-						            <table width="100%" border="0" cellspacing="1" cellpadding="2" class="table table-striped table-hover">
+						            <table class="table table-striped table-hover">
 						            <tr>
 						                <th>Pengunjung</th>             
 						                <th>Jumlah</th>            
@@ -122,7 +122,7 @@
 		var oTable1 = $('#properti').dataTable({
 			"aoColumns": [
 		    	{ "bSortable": false },
-		      		null, null,null, null, null, null
+		      		null, null,null, null, null,
 			  	{ "bSortable": false }
 			] 
 		});
