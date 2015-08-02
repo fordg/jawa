@@ -23,7 +23,6 @@ class C_kuliner extends CI_Controller {
          * @var array
          */
         $data = array();
-        $data['msg']          = $this->_get_flashdata();
         $data['notif']        = $this->m_property->count_properti();
         $data['notifikasi']   = $this->m_property->notif_properti();
         $data['rows']         = $this->m_property->get_kuliner();
@@ -88,6 +87,7 @@ class C_kuliner extends CI_Controller {
                             'create_date'   =>$this->input->post('create_date'),
                             'verified'      =>$this->input->post('verified')
             );
+            $this->session->set_flashdata('success', 'Data kuliner berhasil diubah');
             $this->m_property->post($data);
             redirect('admin/c_kuliner');
         }else{
@@ -110,6 +110,7 @@ class C_kuliner extends CI_Controller {
 
                             'photo'         =>$upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data kuliner berhasil ditambah');
             $this->m_property->post($data);
             redirect('admin/c_kuliner');
         }
@@ -125,7 +126,6 @@ class C_kuliner extends CI_Controller {
          * @var array
          */
         $data = array();
-        $data['msg']            = $this->_get_flashdata();
         $data['category']       = $this->m_category->get(); 
         $data['jenis']          = $this->m_property->getJenisKuliner();
         $data['notif']          = $this->m_property->count_properti();
@@ -169,6 +169,7 @@ class C_kuliner extends CI_Controller {
                             'create_date'   =>$this->input->post('create_date'),
                             'verified'      =>$this->input->post('verified')
             );
+            $this->session->set_flashdata('success', 'Data kuliner berhasil diubah');
             $this->m_property->update($id,$data);
             redirect('admin/c_kuliner');
         }else{
@@ -191,6 +192,7 @@ class C_kuliner extends CI_Controller {
 
                             'photo'      => $upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data kuliner berhasil diubah');
             $this->m_property->update($id,$data);
             redirect('admin/c_kuliner');
         }
@@ -200,18 +202,10 @@ class C_kuliner extends CI_Controller {
         $id = $this->uri->segment(4); 
         $h=$this->m_property->delete($id); 
         if($h==1451)
-            $this->session->set_flashdata('message', $this->message->message_error('Gagal menghapus. Data tersebut sudah digunakan pada data lainnya'));
+            $this->session->set_flashdata('error', 'Gagal menghapus. Data tersebut sudah digunakan pada data lainnya');
         else
-            //$this->session->set_flashdata('message', $this->message->message_success('Berhasil menghapus Data'));
+            $this->session->set_flashdata('success', 'Berhasil menghapus data');
             redirect(base_url('admin/c_kuliner'));
-    }
-
-    private function _get_flashdata() {
-        $msg = $this->session->flashdata("process_msg");
-        if (empty($msg))
-            return array("type" => "hidden", "content" => "");
-        else
-            return $msg;
     }
 }
 

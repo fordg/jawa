@@ -74,7 +74,42 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /row -->
+				</div><!-- /.row -->
+
+				<!-- hit counter -->
+			    <div class="row">
+			        <div class="col-xs-12 col-sm-12 widget-container-span">
+			        	<div class="widget-box light-border">
+			        		<div class="widget-header header-color-dark">
+								<h5 class="smaller">Daftar Pengunjung</h5>
+							</div>
+
+							<div class="widget-body">
+								<div class="widget-main padding-6">
+						            <table width="100%" border="0" cellspacing="1" cellpadding="2" class="table table-striped table-hover">
+						            <tr>
+						                <th>Pengunjung</th>             
+						                <th>Jumlah</th>            
+						            </tr>
+						            <tr>
+						                <td>Pengunjung Hari ini</td>           
+						                <td><?php echo $hari_ini['hari_ini']; ?></td>            
+						            </tr>
+						            <tr>
+						                <td>Pengunjung Kemarin</td>             
+						                <td><?php echo $kemarin['kemarin']; ?></td>            
+						            </tr>  
+						           	<tr>
+						                <td>Total Pengunjung</td>             
+						                <td><?php echo $total['total']; ?></td>            
+						            </tr>
+						            </table>
+								</div><!-- /.widget-main padding-6 -->
+							</div><!-- /.widget-body -->
+			            </div><!-- /.widget-box light border -->
+			        </div>
+			    </div>
+			    <!-- /.hit counter -->
 
 				<div class="space-24"></div>
 			</div><!-- /.col-xs-12 -->

@@ -99,6 +99,7 @@ class C_ads extends CI_Controller
                             'created_date'  => $this->input->post('created_date'),
                             'link'          => $this->input->post('link')
             );
+            $this->session->set_flashdata('success', 'Data iklan berhasil ditambah');
             $this->m_iklan->post($data);
             redirect('admin/c_ads');
         }else{
@@ -112,6 +113,7 @@ class C_ads extends CI_Controller
                             'link'          => $this->input->post('link'),
                             'gambar'        => $upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data iklan berhasil ditambah');
             $this->m_iklan->post($data);
             redirect('admin/c_ads');
         }
@@ -157,6 +159,7 @@ class C_ads extends CI_Controller
                             'created_date'  => $this->input->post('created_date'),
                             'link'          => $this->input->post('link')
             );
+            $this->session->set_flashdata('success', 'Data iklan berhasil diubah');
             $condition['nID'] = $this->input->post('nID'); 
             $this->m_iklan->put($data, $condition);
             redirect('admin/c_ads');
@@ -171,6 +174,7 @@ class C_ads extends CI_Controller
                             'link'          => $this->input->post('link'),
                             'gambar'        => $upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data iklan berhasil diubah');
             $condition['nID'] = $this->input->post('nID');
             $this->m_iklan->put($data, $condition);
             redirect('admin/c_ads');
@@ -210,7 +214,7 @@ class C_ads extends CI_Controller
             $target = 'admin/c_ads';
         }
         
-        $this->session->set_flashdata("process_msg", $msg);
+        $this->session->set_flashdata('success', 'Data iklan berhasil dipublish');
         redirect($target,'refresh');
     }
 

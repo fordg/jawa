@@ -22,7 +22,6 @@ class C_belanja extends CI_Controller {
          * @var array
          */
         $data = array();
-        $data['msg']          = $this->_get_flashdata();
         $data['notif']        = $this->m_property->count_properti();
         $data['notifikasi']   = $this->m_property->notif_properti();
         $data['rows']         = $this->m_property->get_belanja();
@@ -87,6 +86,7 @@ class C_belanja extends CI_Controller {
                             'create_date'   =>$this->input->post('create_date'),
                             'verified'      =>$this->input->post('verified')
             );
+            $this->session->set_flashdata('success', 'Data tempat belanja berhasil diubah');
             $this->m_property->post($data);
             redirect('admin/c_belanja');
         }else{
@@ -109,6 +109,7 @@ class C_belanja extends CI_Controller {
 
                             'photo'         =>$upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data tempat belanja berhasil diubah');
             $this->m_property->post($data);
             redirect('admin/c_belanja');
         }
@@ -124,7 +125,6 @@ class C_belanja extends CI_Controller {
          * @var array
          */
         $data = array();
-        $data['msg']            = $this->_get_flashdata();
         $data['category']       = $this->m_category->get(); 
         $data['jenis']          = $this->m_property->getJenisBelanja();
         $data['notif']          = $this->m_property->count_properti();
@@ -168,8 +168,9 @@ class C_belanja extends CI_Controller {
                             'create_date'   =>$this->input->post('create_date'),
                             'verified'      =>$this->input->post('verified')
             );
+            $this->session->set_flashdata('success', 'Data tempat belanja berhasil diubah');
             $this->m_property->update($id,$data);
-            redirect('admin/c_kuliner');
+            redirect('admin/c_belanja');
         }else{
             $upload = $this->upload->data();
             $id= $this->input->post('userid');
@@ -190,22 +191,15 @@ class C_belanja extends CI_Controller {
 
                             'photo'      => $upload['file_name']
             );
+            $this->session->set_flashdata('success', 'Data tempat belanja berhasil diubah');
             $this->m_property->update($id,$data);
-            redirect('admin/c_kuliner');
+            redirect('admin/c_belanja');
         }
     }
 
     public function delete($id){
         $this->m_property->delete($id);
         redirect('admin/c_belanja');
-    }
-
-    private function _get_flashdata(){
-        $msg = $this->session->flashdata("process_msg");
-        if (empty($msg))
-            return array("type" => "hidden", "content" => "");
-        else
-            return $msg;
     }
 }
 

@@ -18,6 +18,10 @@
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
                 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <?php $this->load->view('notification') ?>
+                    </div>
+
                     <div class="col-xs-12 col-sm-12 widget-container-span">
                         <div class="table-header">
                             <div class="row">
@@ -72,6 +76,11 @@
                                                 <?php }else{ ?>
                                                 <a href="<?php echo base_url('admin/c_properti/properti_aprove/'.$row['idProperti']); ?>" class="btn btn-primary btn-minier"><i class="icon-exclamation-sign"></i>Belum di Verifikasi</a>
                                                 <?php } ?>
+
+                                                <a href="<?php echo base_url('admin/c_destination/ubah/'.$row['idProperti']) ?>" class="btn btn-primary btn-minier">
+                                                    <i class="fa fa-pencil-square-o"></i> Ubah
+                                                </a>
+
                                                 <a href="<?php echo base_url('admin/c_destination/delete/'.$row['idProperti']) ?>" class="btn btn-danger btn-minier">
                                                     <i class="ace-icon fa fa-times bigger-125"></i> Hapus
                                                 </a>
