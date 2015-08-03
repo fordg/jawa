@@ -41,7 +41,7 @@ class C_user extends CI_Controller {
         $id= $this->input->post('nID');
         $data = array(
                         'strUserName'       => $this->input->post('strUserName'),
-                        'strUserPassword'   => $this->input->post('strUserPassword'),
+                        'strUserPassword'   => encrypt($this->input->post('strUserPassword')),
                         'strFLName'         => $this->input->post('strFLName'),
                         'strEmail'          => $this->input->post('strEmail')
                      );

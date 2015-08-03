@@ -15,6 +15,7 @@
 
     <div class="page-content">
 
+        <?php $this->load->view('notification') ?>
         <div class="table-header">
             Profil
         </div>
